@@ -1,0 +1,42 @@
+{
+  "name": "solution-center-communicator",
+  "version": "0.0.1",
+  "description": "Communicator tool for SC of BS frontend app with the backend API",
+  "license": "MIT",
+  "authors": [
+    "Greg Deane <greg.james.deane@zalando.de>"
+  ],
+  "main": [
+    "dist/solution-center-communicator.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zalando-incubator/solution-center-communicator"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "demo",
+    "src",
+    ".idea",
+    ".bowerrc",
+    ".gitignore",
+    ".travis.yml",
+    ".npmignore",
+    "karma.conf.js",
+    "bower.json",
+    "gulpfile.js",
+    "package.json"
+  ],
+  "devDependencies": {
+    "jquery": "~2.1.1",
+    "angular-mocks": "^1.2.26"
+  },
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-cookies": "^1.5.0"
+  }
+}
