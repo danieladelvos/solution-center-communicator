@@ -1,6 +1,6 @@
 {
   "name": "solution-center-communicator",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Communicator tool for SC of BS frontend app with the backend API",
   "homepage": "https://github.com/zalando-incubator/solution-center-communicator",
   "main": "dist/solution-center-communicator.js",
