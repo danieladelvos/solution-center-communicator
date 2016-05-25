@@ -1,4 +1,4 @@
-angular.module('sc-authentication')
+angular.module('solution.center.communicator')
     .constant('ENVIRONMENTS', {
       PRODUCTION: {
         url: 'https://www.solutions.zalando.com',

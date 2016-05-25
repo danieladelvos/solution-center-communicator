@@ -1,6 +1,6 @@
-angular.module('solutionCenter.communicator')
+angular.module('solution.center.communicator')
 
-  .provider('environment', [function () {
+  .provider('environment', ['$window', function ($window) {
     'use strict';
 
     var environments = {
@@ -39,11 +39,11 @@ angular.module('solutionCenter.communicator')
     // TODO this module must be refactored or removed when we defined
     // a strategy to handle multiple environments and rest APIs discovery system
     var currentEnvironment = (function () {
-      if (typeof window['jasmine'] == 'object') {
+      if (typeof $window['jasmine'] == 'object') {
         return environments.TESTING;
       }
 
-      var hostname = window.location.hostname;
+      var hostname = $window.location.hostname;
       var environment = undefined;
 
       Object.keys(environments)
