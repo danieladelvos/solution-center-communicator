@@ -1,70 +1,28 @@
 angular.module('solution.center.communicator')
 
-  .provider('environment', ['$window', function ($window) {
+  .provider('environments', ['ENVIRONMENTS', function (ENVIRONMENTS) {
     'use strict';
 
-    var environments = {
-      PRODUCTION: {
-        name: 'PRODUCTION',
-        url: 'solutions.zalando.com',
-        logentriesToken: 'd55ac62d-77c8-4388-9159-a58e330ffdc8',
-        cookieDomain: 'solutions.zalando.com'
-      },
-      INTEGRATION: {
-        name: 'INTEGRATION',
-        url: 'sc-integration.norris.zalan.do',
-        cookieDomain: '.zalan.do'
-      },
-      STAGE: {
-        name: 'STAGE',
-        url: 'sc-stage.norris.zalan.do',
-        logentriesToken: '0468fc87-03bc-4954-8ce5-907aa019277e',
-        cookieDomain: '.zalan.do'
-      },
-      DEVELOPMENT: {
-        name: 'DEVELOPMENT',
-        url: 'sc-development.norris.zalan.do',
-        cookieDomain: '.zalan.do'
-      },
-      LOCAL: {
-        name: 'LOCAL',
-        url: 'localhost',
-        cookieDomain: 'localhost'
-      },
-      TESTING: {
-        name: 'TESTING'
+    var getEnvironment = function (config) {
+      if (typeof window['jasmine'] == 'object') {
+        return config.TESTING;
       }
+
+      var env = config.ENVIRONMENT;
+
+      // if "$" is NOT contained in the `NAME` value, use that environment
+      // if "$" is contained in the `NAME` value, use LOCAL environment
+      return (env.NAME.indexOf('$') === -1 && env) || config.LOCAL;
+
     };
 
-    // TODO this module must be refactored or removed when we defined
-    // a strategy to handle multiple environments and rest APIs discovery system
-    var currentEnvironment = (function () {
-      if (typeof $window['jasmine'] == 'object') {
-        return environments.TESTING;
-      }
-
-      var hostname = $window.location.hostname;
-      var environment = undefined;
-
-      Object.keys(environments)
-        .forEach(function (key) {
-          if (hostname.indexOf(environments[key].url) !== -1) {
-            environment = environments[key];
-          }
-        });
-
-      return environment || environments.DEVELOPMENT; // TODO Fallback to DEV. Should never come here though
-    })();
-
-    this.getCurrent = function () {
-      return currentEnvironment;
+    this.getCurrent = function (name) {
+      //return (custom && getEnvironment(custom)) || getEnvironment(CONFIG);
     };
 
     this.$get = function () {
       return {
-        getCurrent: function () {
-          return currentEnvironment;
-        }
+        getCurrent: this.getCurrent
       };
     };
 

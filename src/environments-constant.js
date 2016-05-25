@@ -1,34 +1,89 @@
 angular.module('solution.center.communicator')
     .constant('ENVIRONMENTS', {
       PRODUCTION: {
-        url: 'https://www.solutions.zalando.com',
-        tokenservice: 'https://token-management.norris.zalan.do',
-        userservice: 'https://user-management.norris.zalan.do',
-        domain: 'solutions.zalando.com'
+        NAME: 'PRODUCTION',
+        URL: 'https://solutions.zalando.com',
+        DOMAIN: 'solutions.zalando.com',
+        PORT: '',
+        USER_SERVICE: {
+          BASE_URL: 'https://user-management.norris.zalan.do'
+        },
+        TOKEN_SERVICE: {
+          BASE_URL: 'https://token-management.norris.zalan.do'
+        },
+        MERCHANT_SERVICE: {
+          BASE_URL: 'https://merchant-management.norris.zalan.do'
+        }
       },
       STAGE: {
-        url: 'https://sc-stage.norris.zalan.do',
-        tokenservice: 'https://tm-stage.norris.zalan.do',
-        userservice: 'https://um-stage.norris.zalan.do',
-        domain: '.zalan.do'
+        NAME: 'STAGE',
+        URL: 'https://sc-stage.norris.zalan.do',
+        DOMAIN: '.zalan.do',
+        PORT: '',
+        USER_SERVICE: {
+          BASE_URL: 'https://um-stage.norris.zalan.do'
+        },
+        TOKEN_SERVICE: {
+          BASE_URL: 'https://tm-stage.norris.zalan.do'
+        },
+        MERCHANT_SERVICE: {
+          BASE_URL: 'https://merchant-stage.norris.zalan.do'
+        }
       },
       INTEGRATION: {
-        url: 'https://sc-integration.norris.zalan.do',
-        tokenservice: 'https://tm-integration.norris.zalan.do',
-        userservice: 'https://um-integration.norris.zalan.do',
-        domain: '.zalan.do'
+        NAME: 'INTEGRATION',
+        URL: 'https://sc-integration.norris.zalan.do',
+        DOMAIN: '.zalan.do',
+        PORT: '',
+        USER_SERVICE: {
+          BASE_URL: 'https://um-integration.norris.zalan.do'
+        },
+        TOKEN_SERVICE: {
+          BASE_URL: 'https://tm-integration.norris.zalan.do'
+        },
+        MERCHANT_SERVICE: {
+          BASE_URL: 'https://merchant-integration.norris.zalan.do'
+        }
       },
       DEVELOPMENT: {
-        url: 'https://sc-development.norris.zalan.do',
-        tokenservice: 'https://tm-development.norris.zalan.do',
-        userservice: 'https://um-development.norris.zalan.do',
-        domain: '.zalan.do'
+        NAME: 'DEVELOPMENT',
+        URL: 'https://sc-development.norris.zalan.do',
+        DOMAIN: '.zalan.do',
+        PORT: '',
+        USER_SERVICE: {
+          BASE_URL: 'https://um-development.norris.zalan.do'
+        },
+        TOKEN_SERVICE: {
+          BASE_URL: 'https://tm-development.norris.zalan.do'
+        },
+        MERCHANT_SERVICE: {
+          BASE_URL: 'https://merchant-development.norris.zalan.do'
+        }
       },
       LOCAL: {
-        url: 'http://localhost:{PORT}',
-        port: 3333,
-        tokenservice: 'https://tm-development.norris.zalan.do',
-        userservice: 'https://um-development.norris.zalan.do',
-        domain: 'localhost'
+        NAME: 'LOCAL',
+        URL: 'localhost',
+        DOMAIN: 'localhost',
+        PORT: 3333,
+        USER_SERVICE: {
+          BASE_URL: 'https://um-development.norris.zalan.do'
+        },
+        TOKEN_SERVICE: {
+          BASE_URL: 'https://tm-development.norris.zalan.do'
+        },
+        MERCHANT_SERVICE: {
+          BASE_URL: 'https://merchant-development.norris.zalan.do'
+        }
+      },
+      TESTING: {
+        MERCHANT_SERVICE: {
+          BASE_URL: ''
+        },
+        USER_SERVICE: {
+          BASE_URL: ''
+        },
+        TOKEN_SERVICE: {
+          BASE_URL: ''
+        }
       }
     });
