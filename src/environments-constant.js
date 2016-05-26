@@ -76,6 +76,10 @@ angular.module('solution.center.communicator')
         }
       },
       TESTING: {
+        NAME: 'TESTING',
+        URL: '',
+        DOMAIN: '',
+        PORT: '',
         MERCHANT_SERVICE: {
           BASE_URL: ''
         },
