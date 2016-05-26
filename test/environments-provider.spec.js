@@ -1,4 +1,4 @@
-describe('environmentsProvider', function () {
+describe('environments provider', function () {
 
   var environmentNames = ['PRODUCTION', 'STAGE', 'INTEGRATION', 'DEVELOPMENT', 'LOCAL', 'TESTING'];
   var environmentInvalid = [{}, [], 2, '@', null, undefined, 1.2, environmentNames];
