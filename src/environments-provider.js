@@ -1,11 +1,9 @@
 angular.module('solution.center.communicator')
 
-  .provider('environments', ['$windowProvider', 'ENVIRONMENTS',
-    function ($windowProvider, ENVIRONMENTS) {
+  .provider('environments', ['ENVIRONMENTS',
+    function (ENVIRONMENTS) {
       'use strict';
 
-      var $window = $windowProvider.$get();
-      var isTestEnvironment = angular.isObject($window['jasmine']);
       var environment;
 
       /**
@@ -28,10 +26,8 @@ angular.module('solution.center.communicator')
        *
        * For example, Solution Center populates the `ENVIRONMENT` object via YAML files during deployment. The
        * `NAME` property of this object will contain either the YAML-supplied environment name (e.g. "PRODUCTION")
-       * or the placeholder string "${NAME}".
-       *
-       * If we are in a non-LOCAL environment, "${NAME}" will have been replaced with the appropriate value from
-       * the YAML file.
+       * or the placeholder string "${NAME}". If we are in a non-LOCAL environment, "${NAME}" will have been replaced
+       * with the appropriate value from the YAML file.
        *
        * This method first checks that the `ENVIRONMENT` property exists in the custom config object. If `ENVIRONMENT`
        * is found, `name` will be set to the value in the `NAME` property. Otherwise, `name` will be an empty string.
@@ -54,13 +50,11 @@ angular.module('solution.center.communicator')
         /**
          * Set current environment
          * @param (string|Object} env - Environment name or custom environment object
-         * @returns {Object} Test environment, custom environment, or fallback environment
+         * @returns {Object} Named, custom, or fallback environment
          */
         setCurrentEnvironment: function (env) {
-          // if `env` is a string, set that environment. otherwise, set custom environment
           environment = (angular.isString(env) && getNamedEnvironment(env)) || getCustomEnvironment(env);
-
-          return (isTestEnvironment && ENVIRONMENTS.TESTING) || environment;
+          return environment;
         },
 
         /**
