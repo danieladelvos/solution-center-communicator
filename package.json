@@ -1,7 +1,7 @@
 {
   "name": "solution-center-communicator",
   "version": "0.1.0",
-  "description": "Communicator tool for SC of BS frontend app with the backend API",
+  "description": "Tool for facilitating communication between the Solution Center and API",
   "homepage": "https://github.com/zalando-incubator/solution-center-communicator",
   "main": "dist/solution-center-communicator.js",
   "license": "MIT",
@@ -9,7 +9,9 @@
     "test": "gulp test",
     "start": "gulp serve"
   },
-  "author": "Greg Deane <greg.james.deane@zalando.de>",
+  "authors": [
+    "Greg Deane <greg.james.deane@zalando.de>"
+  ],
   "maintainers": [
     "Greg Deane <greg.james.deane@zalando.de>"
   ],
@@ -23,7 +25,6 @@
   "keywords": [
     "angular",
     "angularjs",
-    "directive",
     "solution",
     "center",
     "zalando",

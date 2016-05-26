@@ -9,13 +9,9 @@ module.exports = function(config) {
 
     // List of files / patterns to load in the browser
     files: [
-      'bower_components/jquery/dist/jquery.js',
       'bower_components/angular/angular.js',
-      'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-mocks/angular-mocks.js',
-
       'dist/solution-center-communicator.js',
-      'dist/solution-center-communicator.css',
       'test/**/*.spec.js'
     ],
 
