@@ -1,7 +1,7 @@
 # Solution Center Communicator
-Configuration tool for users of the Solution Center of Brand Solutions
+Tool for facilitating communication between the Solution Center and API
 
-[![Build Status](https://travis-ci.org/zalando/solution-center-communicator.svg?branch=master)](https://travis-ci.org/zalando/solution-center-communicator)
+# [![Build Status](https://travis-ci.org/zalando/solution-center-communicator.svg?branch=master)](https://travis-ci.org/zalando/solution-center-communicator)
 
 ### Installation
 
@@ -22,14 +22,14 @@ npm install solution-center-communicator
 1. Load the script in your `<head>` from Bower:
 
     ```html
-    <script src="../bower_components/solution-center-communicator/dist/solution-center-communicator.js"></script>
+    <script src="../bower_components/solution-center-communicator/dist/solution-center-communicator.min.js"></script>
     ```
     
     Or from NPM:
     
     
     ```html
-    <script src="../node_modules/solution-center-communicator/dist/solution-center-communicator.js"></script>
+    <script src="../node_modules/solution-center-communicator/dist/solution-center-communicator.min.js"></script>
     ```
 	 
 ### Develop
@@ -49,10 +49,8 @@ npm install -g gulp
 #### Available commands
 
 * `gulp`: build and test the project
-* `gulp build`: build the project and make new files in`dist`
-* `gulp serve`: start a server to serve the demo page and launch a browser then watches for changes in `src` files to reload the page
-* `gulp test`: run tests
-* `gulp serve-test`: runs tests and keep test browser open for development. Watches for changes in source and test files to re-run the tests
+* `gulp build`: build and lint the project, creating new files in `dist`
+* `gulp test`: build, lint, and run tests
 
 ### License
 The MIT License (MIT) Copyright © 2016 Zalando SE, [https://tech.zalando.com](https://tech.zalando.com)
