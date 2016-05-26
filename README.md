@@ -1,8 +1,6 @@
 # Solution Center Communicator
 Tool for facilitating communication between the Solution Center and API
 
-# [![Build Status](https://travis-ci.org/zalando/solution-center-communicator.svg?branch=master)](https://travis-ci.org/zalando/solution-center-communicator)
-
 ### Installation
 
 Install via bower
