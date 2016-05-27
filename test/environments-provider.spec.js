@@ -3,12 +3,13 @@ describe('environments provider', function () {
   var environmentNames = ['PRODUCTION', 'STAGE', 'INTEGRATION', 'DEVELOPMENT', 'LOCAL', 'TESTING'];
   var environmentInvalid = [{}, [], 2, '@', null, undefined, 1.2, environmentNames];
   var environmentsProvider;
-  var mocks = {};
+  var defaultEnvironment;
+  var mock;
+  var env;
 
   beforeEach(function () {
     modules();
     injectors();
-    getMocks();
   });
 
   // SET ENVIRONMENT
@@ -16,31 +17,34 @@ describe('environments provider', function () {
 
     it('should set environment based on passed environment string', function () {
       environmentNames.forEach(function (name) {
-        var env = environmentsProvider.setCurrentEnvironment(name);
+        env = environmentsProvider.setCurrentEnvironment(name);
         expect(env.NAME).toBe(name);
       });
     });
 
     it('should set environment based on custom config', function () {
-      var env = environmentsProvider.setCurrentEnvironment(mocks.environment.yaml);
-      expect(env.NAME).toBe('PRODUCTION');
+      mock = getMock('PRODUCTION');
+      env = environmentsProvider.setCurrentEnvironment(mock);
+      expect(env.NAME).toBe(mock.ENVIRONMENT.NAME);
       expect(env.CUSTOM_VALUE).toBe(true);
     });
 
-    it('should set environment to LOCAL if custom config `NAME` contains a "$" sign', function () {
-      var env = environmentsProvider.setCurrentEnvironment(mocks.environment.dollar);
-      expect(env.NAME).toBe('LOCAL');
+    it('should set default environment if custom config `NAME` contains a "$" sign', function () {
+      mock = getMock('${NAME}');
+      env = environmentsProvider.setCurrentEnvironment(mock);
+      expect(env.NAME).toBe(defaultEnvironment);
     });
 
-    it('should set environment to LOCAL if custom config `NAME` is an empty string', function () {
-      var env = environmentsProvider.setCurrentEnvironment(mocks.environment.empty);
-      expect(env.NAME).toBe('LOCAL');
+    it('should set default environment if custom config `NAME` is an empty string', function () {
+      mock = getMock('');
+      env = environmentsProvider.setCurrentEnvironment(mock);
+      expect(env.NAME).toBe(defaultEnvironment);
     });
 
-    it('should set environment to LOCAL if invalid environment value is passed', function () {
+    it('should set default environment if invalid environment value is passed', function () {
       environmentInvalid.forEach(function (invalid) {
-        var env = environmentsProvider.setCurrentEnvironment(invalid);
-        expect(env.NAME).toBe('LOCAL');
+        env = environmentsProvider.setCurrentEnvironment(invalid);
+        expect(env.NAME).toBe(defaultEnvironment);
       });
     });
 
@@ -49,32 +53,26 @@ describe('environments provider', function () {
   // GET ENVIRONMENT
   describe('get environment', function () {
 
-    it('should return LOCAL if environment has not been set', function () {
-      var env = environmentsProvider.getCurrentEnvironment();
-      expect(env.NAME).toBe('LOCAL');
+    it('should return default environment if environment has not been set', function () {
+      env = environmentsProvider.getCurrentEnvironment();
+      expect(env.NAME).toBe(defaultEnvironment);
     });
 
     it('should return specific environment if it was previously set', function () {
-      var env;
-
       environmentsProvider.setCurrentEnvironment('STAGE');
       env = environmentsProvider.getCurrentEnvironment();
       expect(env.NAME).toBe('STAGE');
-
-      environmentsProvider.setCurrentEnvironment(mocks.environment.yaml);
-      env = environmentsProvider.getCurrentEnvironment();
-      expect(env.NAME).toBe('PRODUCTION');
     });
 
     it('should return specific environment if environment string is passed', function () {
-      var env = environmentsProvider.getCurrentEnvironment('INTEGRATION');
+      env = environmentsProvider.getCurrentEnvironment('INTEGRATION');
       expect(env.NAME).toBe('INTEGRATION');
     });
 
-    it('should return LOCAL environment if invalid environment is passed', function () {
+    it('should return default environment if invalid environment is passed', function () {
       environmentInvalid.forEach(function (invalid) {
-        var env = environmentsProvider.getCurrentEnvironment(invalid);
-        expect(env.NAME).toBe('LOCAL');
+        env = environmentsProvider.getCurrentEnvironment(invalid);
+        expect(env.NAME).toBe(defaultEnvironment);
       });
     });
 
@@ -84,10 +82,10 @@ describe('environments provider', function () {
   describe('format environment', function () {
 
     it('should format environment object by wrapping it in an `ENVIRONMENT` property', function () {
-      var unformatted = mocks.environment.unformatted;
-      var env = environmentsProvider.formatEnvironment(unformatted);
+      mock = getMock('STAGE').ENVIRONMENT;
+      env = environmentsProvider.formatEnvironment(mock);
 
-      expect(unformatted.ENVIRONMENT).toBeUndefined();
+      expect(mock.ENVIRONMENT).toBeUndefined();
       expect(env.ENVIRONMENT).toBeDefined();
       expect(env.ENVIRONMENT.CUSTOM_VALUE).toBe(true);
     });
@@ -103,95 +101,16 @@ describe('environments provider', function () {
   function injectors() {
     inject(function ($injector) {
       environmentsProvider = $injector.get('environments');
+      defaultEnvironment = $injector.get('DEFAULT_ENVIRONMENT');
     });
   }
 
-  function getMocks() {
-    mocks.environment = {
-      yaml: getYamlMock(),
-      dollar: getDollarMock(),
-      empty: getEmptyMock(),
-      unformatted: getUnformattedMock()
-    };
-  }
-
-  function getYamlMock() {
+  function getMock(env) {
     return {
       ENVIRONMENT: {
-        NAME: 'PRODUCTION',
-        URL: 'https://solutions.zalando.com',
-        DOMAIN: 'solutions.zalando.com',
-        PORT: '',
-        USER_SERVICE: {
-          BASE_URL: 'https://user-management.norris.zalan.do'
-        },
-        TOKEN_SERVICE: {
-          BASE_URL: 'https://token-management.norris.zalan.do'
-        },
-        MERCHANT_SERVICE: {
-          BASE_URL: 'https://merchant-management.norris.zalan.do'
-        },
+        NAME: env,
         CUSTOM_VALUE: true
       }
-    };
-  }
-
-  function getDollarMock() {
-    return {
-      ENVIRONMENT: {
-        NAME: '${NAME}',
-        URL: '${URL}',
-        DOMAIN: '${DOMAIN}',
-        PORT: '${PORT}',
-        MERCHANT_SERVICE: {
-          BASE_URL: '${MERCHANT_SERVICE_URL}'
-        },
-        USER_SERVICE: {
-          BASE_URL: '${USER_SERVICE_URL}'
-        },
-        TOKEN_SERVICE: {
-          BASE_URL: '${TOKEN_SERVICE_URL}'
-        }
-      }
-    };
-  }
-
-  function getEmptyMock() {
-    return {
-      ENVIRONMENT: {
-        NAME: '',
-        URL: '',
-        DOMAIN: '',
-        PORT: '',
-        MERCHANT_SERVICE: {
-          BASE_URL: ''
-        },
-        USER_SERVICE: {
-          BASE_URL: ''
-        },
-        TOKEN_SERVICE: {
-          BASE_URL: ''
-        }
-      }
-    };
-  }
-
-  function getUnformattedMock() {
-    return {
-      NAME: 'DEVELOPMENT',
-      URL: 'https://sc-development.norris.zalan.do',
-      DOMAIN: '.zalan.do',
-      PORT: '',
-      USER_SERVICE: {
-        BASE_URL: 'https://um-development.norris.zalan.do'
-      },
-      TOKEN_SERVICE: {
-        BASE_URL: 'https://tm-development.norris.zalan.do'
-      },
-      MERCHANT_SERVICE: {
-        BASE_URL: 'https://merchant-development.norris.zalan.do'
-      },
-      CUSTOM_VALUE: true
     };
   }
 

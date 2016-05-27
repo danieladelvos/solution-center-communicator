@@ -1,9 +1,10 @@
 angular.module('solution.center.communicator')
 
-  .provider('environments', ['ENVIRONMENTS',
-    function (ENVIRONMENTS) {
+  .provider('environments', ['ENVIRONMENTS', 'DEFAULT_ENVIRONMENT',
+    function (ENVIRONMENTS, DEFAULT_ENVIRONMENT) {
       'use strict';
 
+      var defaultEnvironment = ENVIRONMENTS[DEFAULT_ENVIRONMENT];
       var environment;
 
       /**
@@ -12,10 +13,10 @@ angular.module('solution.center.communicator')
        *
        * @private
        * @param {string} name - Environment name
-       * @returns {Object} Specified environment or fallback environment (LOCAL)
+       * @returns {Object} Specified or default environment
        */
       var getNamedEnvironment = function (name) {
-        return ENVIRONMENTS[name] || ENVIRONMENTS.LOCAL;
+        return ENVIRONMENTS[name] || defaultEnvironment;
       };
 
       /**
@@ -38,21 +39,21 @@ angular.module('solution.center.communicator')
        *
        * @private
        * @param {Object} config - Custom environment config
-       * @returns {Object} Custom environment or fallback environment (LOCAL)
+       * @returns {Object} Custom or default environment
        */
       var getCustomEnvironment = function (config) {
         var env = config && config.ENVIRONMENT;
         var name = (env && env.NAME) || '';
 
-        return (name.length && name.indexOf('$') === -1 && env) || ENVIRONMENTS.LOCAL;
+        return (name.length && name.indexOf('$') === -1 && env) || defaultEnvironment;
       };
 
       /**
-       * Wrap passed environment with `ENVIRONMENT` property
+       * Wrap environment object with `ENVIRONMENT` property
        *
        * @private
        * @param {Object} env - Environment object
-       * @returns {Object} Wrapped environment or LOCAL environment
+       * @returns {Object} Wrapped environment
        */
       var wrapEnvironment = function (env) {
         return {
@@ -67,7 +68,7 @@ angular.module('solution.center.communicator')
          *
          * @public
          * @param {string|Object} env - Environment name or custom environment object
-         * @returns {Object} Named, custom, or fallback environment
+         * @returns {Object} Named or custom environment
          */
         setCurrentEnvironment: function (env) {
           environment = (angular.isString(env) && getNamedEnvironment(env)) || getCustomEnvironment(env);
@@ -75,26 +76,26 @@ angular.module('solution.center.communicator')
         },
 
         /**
-         * Get current environment or named environment
-         * If environment not previously configured, fallback to LOCAL
+         * Get current or named environment
+         * If environment was not previously configured, use default environment
          *
          * @public
          * @param {string} name - Environment name
-         * @returns {Object} Named, current or LOCAL environment
+         * @returns {Object} Named, current or default environment
          */
         getCurrentEnvironment: function (name) {
-          return (name && getNamedEnvironment(name)) || environment || ENVIRONMENTS.LOCAL;
+          return (name && getNamedEnvironment(name)) || environment || defaultEnvironment;
         },
 
         /**
-         * Wrap passed environment with `ENVIRONMENT` property
+         * Wrap environment object with `ENVIRONMENT` property
          *
          * @public
          * @param {Object} env - Environment object
-         * @returns {Object} Wrapped environment or LOCAL environment
+         * @returns {Object} Wrapped or default environment
          */
         formatEnvironment: function (env) {
-          return (angular.isObject(env) && wrapEnvironment(env)) || ENVIRONMENTS.LOCAL;
+          return (angular.isObject(env) && wrapEnvironment(env)) || defaultEnvironment;
         },
 
         $get: function () {

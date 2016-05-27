@@ -1,4 +1,5 @@
 angular.module('solution.center.communicator')
+    .constant('DEFAULT_ENVIRONMENT', 'LOCAL')
     .constant('ENVIRONMENTS', {
       PRODUCTION: {
         NAME: 'PRODUCTION',
