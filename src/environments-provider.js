@@ -10,6 +10,7 @@ angular.module('solution.center.communicator')
        * Get environment object by name
        * Possible values: 'PRODUCTION', 'STAGE', 'INTEGRATION', 'DEVELOPMENT', 'LOCAL', 'TESTING'
        *
+       * @private
        * @param {string} name - Environment name
        * @returns {Object} Specified environment or fallback environment (LOCAL)
        */
@@ -35,6 +36,7 @@ angular.module('solution.center.communicator')
        * The return statement ensures that `name` is neither empty nor contains a "$" sign. If both checks are true,
        * the custom environment is returned. Otherwise, the fallback environment is returned.
        *
+       * @private
        * @param {Object} config - Custom environment config
        * @returns {Object} Custom environment or fallback environment (LOCAL)
        */
@@ -45,11 +47,26 @@ angular.module('solution.center.communicator')
         return (name.length && name.indexOf('$') === -1 && env) || ENVIRONMENTS.LOCAL;
       };
 
+      /**
+       * Wrap passed environment with `ENVIRONMENT` property
+       *
+       * @private
+       * @param {Object} env - Environment object
+       * @returns {Object} Wrapped environment or LOCAL environment
+       */
+      var wrapEnvironment = function (env) {
+        return {
+          ENVIRONMENT: env
+        };
+      };
+
       return {
 
         /**
          * Set current environment
-         * @param (string|Object} env - Environment name or custom environment object
+         *
+         * @public
+         * @param {string|Object} env - Environment name or custom environment object
          * @returns {Object} Named, custom, or fallback environment
          */
         setCurrentEnvironment: function (env) {
@@ -58,19 +75,33 @@ angular.module('solution.center.communicator')
         },
 
         /**
-         * Get current environment
-         * If not previously configured, fallback to LOCAL
+         * Get current environment or named environment
+         * If environment not previously configured, fallback to LOCAL
          *
-         * @returns {Object} Current or LOCAL environment
+         * @public
+         * @param {string} name - Environment name
+         * @returns {Object} Named, current or LOCAL environment
          */
-        getCurrentEnvironment: function () {
-          return environment || ENVIRONMENTS.LOCAL;
+        getCurrentEnvironment: function (name) {
+          return (name && getNamedEnvironment(name)) || environment || ENVIRONMENTS.LOCAL;
+        },
+
+        /**
+         * Wrap passed environment with `ENVIRONMENT` property
+         *
+         * @public
+         * @param {Object} env - Environment object
+         * @returns {Object} Wrapped environment or LOCAL environment
+         */
+        formatEnvironment: function (env) {
+          return (angular.isObject(env) && wrapEnvironment(env)) || ENVIRONMENTS.LOCAL;
         },
 
         $get: function () {
           return {
             setCurrentEnvironment: this.setCurrentEnvironment,
-            getCurrentEnvironment: this.getCurrentEnvironment
+            getCurrentEnvironment: this.getCurrentEnvironment,
+            formatEnvironment: this.formatEnvironment
           };
         }
 
