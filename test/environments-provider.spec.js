@@ -66,6 +66,32 @@ describe('environments provider', function () {
       expect(env.NAME).toBe('PRODUCTION');
     });
 
+    it('should return specific environment if environment string is passed', function () {
+      var env = environmentsProvider.getCurrentEnvironment('INTEGRATION');
+      expect(env.NAME).toBe('INTEGRATION');
+    });
+
+    it('should return LOCAL environment if invalid environment is passed', function () {
+      environmentInvalid.forEach(function (invalid) {
+        var env = environmentsProvider.getCurrentEnvironment(invalid);
+        expect(env.NAME).toBe('LOCAL');
+      });
+    });
+
+  });
+
+  // FORMAT ENVIRONMENT
+  describe('format environment', function () {
+
+    it('should format environment object by wrapping it in an `ENVIRONMENT` property', function () {
+      var unformatted = mocks.environment.unformatted;
+      var env = environmentsProvider.formatEnvironment(unformatted);
+
+      expect(unformatted.ENVIRONMENT).toBeUndefined();
+      expect(env.ENVIRONMENT).toBeDefined();
+      expect(env.ENVIRONMENT.CUSTOM_VALUE).toBe(true);
+    });
+
   });
 
   ////////////////////
@@ -84,7 +110,8 @@ describe('environments provider', function () {
     mocks.environment = {
       yaml: getYamlMock(),
       dollar: getDollarMock(),
-      empty: getEmptyMock()
+      empty: getEmptyMock(),
+      unformatted: getUnformattedMock()
     };
   }
 
@@ -146,6 +173,25 @@ describe('environments provider', function () {
           BASE_URL: ''
         }
       }
+    };
+  }
+
+  function getUnformattedMock() {
+    return {
+      NAME: 'DEVELOPMENT',
+      URL: 'https://sc-development.norris.zalan.do',
+      DOMAIN: '.zalan.do',
+      PORT: '',
+      USER_SERVICE: {
+        BASE_URL: 'https://um-development.norris.zalan.do'
+      },
+      TOKEN_SERVICE: {
+        BASE_URL: 'https://tm-development.norris.zalan.do'
+      },
+      MERCHANT_SERVICE: {
+        BASE_URL: 'https://merchant-development.norris.zalan.do'
+      },
+      CUSTOM_VALUE: true
     };
   }
 
