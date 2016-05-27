@@ -8,7 +8,7 @@ angular.module('solution.center.communicator')
 
       /**
        * Get environment object by name
-       * Possible values: 'PRODUCTION', 'STAGE', 'INTEGRATION', 'DEVELOPMENT'
+       * Possible values: 'PRODUCTION', 'STAGE', 'INTEGRATION', 'DEVELOPMENT', 'LOCAL', 'TESTING'
        *
        * @param {string} name - Environment name
        * @returns {Object} Specified environment or fallback environment (LOCAL)

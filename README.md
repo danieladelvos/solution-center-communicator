@@ -1,5 +1,5 @@
 # Solution Center Communicator
-Tool for facilitating communication between the Solution Center and API
+Tool for facilitating communication between the Zalando Solution Center and its APIs
 
 ### Installation
 

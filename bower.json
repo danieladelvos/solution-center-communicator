@@ -1,6 +1,6 @@
 {
   "name": "solution-center-communicator",
-  "description": "Tool for facilitating communication between the Solution Center and API",
+  "description": "Tool for facilitating communication between the Zalando Solution Center and its APIs",
   "license": "MIT",
   "authors": [
     "Greg Deane <greg.james.deane@zalando.de>"
