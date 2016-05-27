@@ -22,10 +22,10 @@ angular.module('solution.center.communicator')
        *
        * The config object passed to this method must contain an `ENVIRONMENT` object to avoid falling back
        * to `LOCAL`. The idea here is that the `ENVIRONMENT` object will have been populated with the necessary
-       * values prior to making a call to the `getCurrentEnvironment()` method.
+       * values prior to making a call to the public `setCurrentEnvironment()` method below.
        *
-       * For example, Solution Center populates the `ENVIRONMENT` object via YAML files during deployment. The
-       * `NAME` property of this object will contain either the YAML-supplied environment name (e.g. "PRODUCTION")
+       * For example, the Zalando Solution Center populates the `ENVIRONMENT` object via YAML files during deployment.
+       * The `NAME` property of this object will contain either the YAML-supplied environment name (e.g. "PRODUCTION")
        * or the placeholder string "${NAME}". If we are in a non-LOCAL environment, "${NAME}" will have been replaced
        * with the appropriate value from the YAML file.
        *
