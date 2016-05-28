@@ -27,15 +27,16 @@ npm install solution-center-communicator
   
 3. Configure the application by injecting **authenicationServiceProvider** in your config block and setting the environment.
 
-  ```javascript.config(['authenticationServiceProvider', function(authenticationServiceProvider) {
+  ```javascript
+  .config(['authenticationServiceProvider', function(authenticationServiceProvider) {
     authenticationServiceProvider.configEnvironment('STAGE');
   }
-  ```
   Environment options:
     * 'LOCAL'
     * 'INTEGRATION'
     * 'STAGE'
     * 'PRODUCTION'
+  ```
 	 
 ### Develop
 
