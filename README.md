@@ -25,18 +25,19 @@ npm install solution-center-communicator
   angular.module('my-module', ['sc-authentication']);
   ```
   
-3. Configure the application by injecting **authenicationServiceProvider** in your config block and setting the environment.
+3. Configure the application by injecting **authenicationServiceProvider** in your config block and setting the environment:
 
   ```javascript
   .config(['authenticationServiceProvider', function(authenticationServiceProvider) {
     authenticationServiceProvider.configEnvironment('STAGE');
   }
+  ```
+  
   Environment options:
     * 'LOCAL'
     * 'INTEGRATION'
     * 'STAGE'
     * 'PRODUCTION'
-  ```
 	 
 ### Develop
 
