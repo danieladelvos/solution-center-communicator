@@ -22,17 +22,17 @@ angular.module('solution.center.communicator')
       /**
        * Get environment object based on custom config
        *
-       * The config object passed to this method must contain an `ENVIRONMENT` object to avoid falling back
-       * to `LOCAL`. The idea here is that the `ENVIRONMENT` object will have been populated with the necessary
-       * values prior to making a call to the public `setCurrentEnvironment()` method below.
+       * The config object passed to this function must be contained in an `ENVIRONMENT` property to avoid using the
+       * default environment. If necessary, you can use the public `formatEnvironment()` method to wrap your config
+       * object in an `ENVIRONMENT` property.
        *
        * For example, the Zalando Solution Center populates the `ENVIRONMENT` object via YAML files during deployment.
        * The `NAME` property of this object will contain either the YAML-supplied environment name (e.g. "PRODUCTION")
        * or the placeholder string "${NAME}". If we are in a non-LOCAL environment, "${NAME}" will have been replaced
        * with the appropriate value from the YAML file.
        *
-       * This method first checks that the `ENVIRONMENT` property exists in the custom config object. If `ENVIRONMENT`
-       * is found, `name` will be set to the value in the `NAME` property. Otherwise, `name` will be an empty string.
+       * This method first checks that the `ENVIRONMENT` property exists in the custom config object. It then sets
+       * `name` to the value in the `NAME` property. Otherwise, `name` is set to an empty string.
        *
        * The return statement ensures that `name` is neither empty nor contains a "$" sign. If both checks are true,
        * the custom environment is returned. Otherwise, the fallback environment is returned.

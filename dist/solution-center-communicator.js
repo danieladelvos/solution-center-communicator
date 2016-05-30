@@ -8,90 +8,54 @@ angular.module('solution.center.communicator')
         URL: 'https://solutions.zalando.com',
         DOMAIN: 'solutions.zalando.com',
         PORT: '',
-        USER_SERVICE: {
-          BASE_URL: 'https://user-management.norris.zalan.do'
-        },
-        TOKEN_SERVICE: {
-          BASE_URL: 'https://token-management.norris.zalan.do'
-        },
-        MERCHANT_SERVICE: {
-          BASE_URL: 'https://merchant-management.norris.zalan.do'
-        }
+        USER_SERVICE: 'https://user-management.norris.zalan.do',
+        TOKEN_SERVICE: 'https://token-management.norris.zalan.do',
+        MERCHANT_SERVICE: 'https://merchant-management.norris.zalan.do'
       },
       STAGE: {
         NAME: 'STAGE',
         URL: 'https://sc-stage.norris.zalan.do',
         DOMAIN: '.zalan.do',
         PORT: '',
-        USER_SERVICE: {
-          BASE_URL: 'https://um-stage.norris.zalan.do'
-        },
-        TOKEN_SERVICE: {
-          BASE_URL: 'https://tm-stage.norris.zalan.do'
-        },
-        MERCHANT_SERVICE: {
-          BASE_URL: 'https://merchant-stage.norris.zalan.do'
-        }
+        USER_SERVICE: 'https://um-stage.norris.zalan.do',
+        TOKEN_SERVICE: 'https://tm-stage.norris.zalan.do',
+        MERCHANT_SERVICE: 'https://merchant-stage.norris.zalan.do'
       },
       INTEGRATION: {
         NAME: 'INTEGRATION',
         URL: 'https://sc-integration.norris.zalan.do',
         DOMAIN: '.zalan.do',
         PORT: '',
-        USER_SERVICE: {
-          BASE_URL: 'https://um-integration.norris.zalan.do'
-        },
-        TOKEN_SERVICE: {
-          BASE_URL: 'https://tm-integration.norris.zalan.do'
-        },
-        MERCHANT_SERVICE: {
-          BASE_URL: 'https://merchant-integration.norris.zalan.do'
-        }
+        USER_SERVICE: 'https://um-integration.norris.zalan.do',
+        TOKEN_SERVICE: 'https://tm-integration.norris.zalan.do',
+        MERCHANT_SERVICE: 'https://merchant-integration.norris.zalan.do'
       },
       DEVELOPMENT: {
         NAME: 'DEVELOPMENT',
         URL: 'https://sc-development.norris.zalan.do',
         DOMAIN: '.zalan.do',
         PORT: '',
-        USER_SERVICE: {
-          BASE_URL: 'https://um-development.norris.zalan.do'
-        },
-        TOKEN_SERVICE: {
-          BASE_URL: 'https://tm-development.norris.zalan.do'
-        },
-        MERCHANT_SERVICE: {
-          BASE_URL: 'https://merchant-development.norris.zalan.do'
-        }
+        USER_SERVICE: 'https://um-development.norris.zalan.do',
+        TOKEN_SERVICE: 'https://tm-development.norris.zalan.do',
+        MERCHANT_SERVICE: 'https://merchant-development.norris.zalan.do'
       },
       LOCAL: {
         NAME: 'LOCAL',
         URL: 'localhost',
         DOMAIN: 'localhost',
         PORT: 3333,
-        USER_SERVICE: {
-          BASE_URL: 'https://um-development.norris.zalan.do'
-        },
-        TOKEN_SERVICE: {
-          BASE_URL: 'https://tm-development.norris.zalan.do'
-        },
-        MERCHANT_SERVICE: {
-          BASE_URL: 'https://merchant-development.norris.zalan.do'
-        }
+        USER_SERVICE: 'https://um-development.norris.zalan.do',
+        TOKEN_SERVICE: 'https://tm-development.norris.zalan.do',
+        MERCHANT_SERVICE: 'https://merchant-development.norris.zalan.do'
       },
       TESTING: {
         NAME: 'TESTING',
         URL: '',
         DOMAIN: '',
         PORT: '',
-        MERCHANT_SERVICE: {
-          BASE_URL: ''
-        },
-        USER_SERVICE: {
-          BASE_URL: ''
-        },
-        TOKEN_SERVICE: {
-          BASE_URL: ''
-        }
+        MERCHANT_SERVICE: '',
+        USER_SERVICE: '',
+        TOKEN_SERVICE: ''
       }
     });
 
@@ -119,17 +83,17 @@ angular.module('solution.center.communicator')
       /**
        * Get environment object based on custom config
        *
-       * The config object passed to this method must contain an `ENVIRONMENT` object to avoid falling back
-       * to `LOCAL`. The idea here is that the `ENVIRONMENT` object will have been populated with the necessary
-       * values prior to making a call to the public `setCurrentEnvironment()` method below.
+       * The config object passed to this function must be contained in an `ENVIRONMENT` property to avoid using the
+       * default environment. If necessary, you can use the public `formatEnvironment()` method to wrap your config
+       * object in an `ENVIRONMENT` property.
        *
        * For example, the Zalando Solution Center populates the `ENVIRONMENT` object via YAML files during deployment.
        * The `NAME` property of this object will contain either the YAML-supplied environment name (e.g. "PRODUCTION")
        * or the placeholder string "${NAME}". If we are in a non-LOCAL environment, "${NAME}" will have been replaced
        * with the appropriate value from the YAML file.
        *
-       * This method first checks that the `ENVIRONMENT` property exists in the custom config object. If `ENVIRONMENT`
-       * is found, `name` will be set to the value in the `NAME` property. Otherwise, `name` will be an empty string.
+       * This method first checks that the `ENVIRONMENT` property exists in the custom config object. It then sets
+       * `name` to the value in the `NAME` property. Otherwise, `name` is set to an empty string.
        *
        * The return statement ensures that `name` is neither empty nor contains a "$" sign. If both checks are true,
        * the custom environment is returned. Otherwise, the fallback environment is returned.
