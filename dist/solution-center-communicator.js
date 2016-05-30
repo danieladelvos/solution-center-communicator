@@ -1,3 +1,10 @@
+/*!
+ * solution-center-communicator
+ * https://github.com/zalando-incubator/solution-center-communicator
+ * License: MIT
+ */
+
+
 angular.module('solution.center.communicator', []);
 
 angular.module('solution.center.communicator')
