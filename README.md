@@ -1,43 +1,10 @@
 # Solution Center Communicator
 Tool for facilitating communication between the Zalando Solution Center and its APIs
 
-### Installation
-
-Install via bower or npm
-
-```shell
-bower install solution-center-communicator
-npm install solution-center-communicator
-```
-
 ### Usage
 
-1. Load the script in your `<head>` from Bower or NPM:
-
-  ```html
-  <script src="../bower_components/solution-center-communicator/dist/solution-center-communicator.js"></script>
-  <script src="../node_modules/solution-center-communicator/dist/solution-center-communicator.js"></script>
-  ```
-  
-2. Add [sc-authentication](https://github.com/zalando-incubator/solution-center-login) as a module dependency:
-
-  ```javascript
-  angular.module('my-module', ['sc-authentication']);
-  ```
-  
-3. Configure the application by injecting **authenicationServiceProvider** in your config block and setting the environment:
-
-  ```javascript
-  .config(['authenticationServiceProvider', function(authenticationServiceProvider) {
-    authenticationServiceProvider.configEnvironment('STAGE');
-  }
-  ```
-  
-  Environment options:
-    * 'LOCAL'
-    * 'INTEGRATION'
-    * 'STAGE'
-    * 'PRODUCTION'
+Currently, the communicator is meant for indirect use via [solution-center-login](https://github.com/zalando-incubator/solution-center-login). See [Usage Instructions](https://github.com/zalando-incubator/solution-center-login#usage) for more info.
+Direct use of the communicator is in the works.
 	 
 ### Develop
 
