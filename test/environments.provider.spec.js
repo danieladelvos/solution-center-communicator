@@ -29,10 +29,10 @@ describe('scEnvironment', function () {
       expect(env.CUSTOM_VALUE).toBe(true);
     });
 
-    it('should set default environment if custom config `NAME` contains a "$" sign', function () {
+    it('should set local environment if custom config `NAME` contains a "$" sign', function () {
       mock = getMock('${NAME}');
       env = environmentsProvider.setCurrentEnvironment(mock);
-      expect(env.NAME).toBe(defaultEnvironment);
+      expect(env.NAME).toBe('LOCAL');
     });
 
     it('should set default environment if custom config `NAME` is an empty string', function () {

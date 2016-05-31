@@ -73,6 +73,7 @@ angular.module('solutioncenter.communicator')
       'use strict';
 
       var defaultEnvironment = ENVIRONMENTS[DEFAULT_ENVIRONMENT];
+      var localEnvironment = ENVIRONMENTS['LOCAL'];
       var environment;
 
       /**
@@ -98,16 +99,20 @@ angular.module('solutioncenter.communicator')
        * or the placeholder string "${NAME}". If we are in a non-LOCAL environment, "${NAME}" will have been replaced
        * with the appropriate value from the YAML file.
        *
-       * The return statement ensures that `name` is neither empty nor contains a "$" sign. If both checks are true,
-       * the custom environment is returned. Otherwise, the fallback environment is returned.
+       * If `name` does not contain a "$" sign, the custom environment is returned. If `name` contains a "$" sign,
+       * the LOCAL environment is returned. Otherwise, the default environment is returned.
        *
        * @private
        * @param {Object} env - Custom environment config
-       * @returns {Object} Custom or default environment
+       * @returns {Object} Custom, local or default environment
        */
       var getCustomEnvironment = function (env) {
         var name = (env && env.NAME) || '';
-        return (name.length && name.indexOf('$') === -1 && env) || defaultEnvironment;
+        var dollar = name.indexOf('$') === -1;
+        var custom = name.length && dollar && env;
+        var local = name.length && !dollar && localEnvironment;
+
+        return custom || local || defaultEnvironment;
       };
 
       return {
