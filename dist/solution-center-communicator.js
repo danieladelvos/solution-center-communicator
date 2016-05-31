@@ -12,7 +12,7 @@ angular.module('solution.center.communicator')
     .constant('ENVIRONMENTS', {
       PRODUCTION: {
         NAME: 'PRODUCTION',
-        URL: 'https://solutions.zalando.com',
+        URL: 'https://www.solutions.zalando.com',
         DOMAIN: 'solutions.zalando.com',
         PORT: '',
         USER_SERVICE: 'https://user-management.norris.zalan.do',
