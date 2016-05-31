@@ -11,7 +11,7 @@ module.exports = function(config) {
     files: [
       'bower_components/angular/angular.js',
       'bower_components/angular-mocks/angular-mocks.js',
-      'dist/solution.center.communicator.js',
+      'dist/solutioncenter.communicator.js',
       'test/**/*.spec.js'
     ],
 

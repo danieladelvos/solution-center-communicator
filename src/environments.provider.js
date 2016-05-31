@@ -1,6 +1,6 @@
-angular.module('solution.center.communicator')
+angular.module('solutioncenter.communicator')
 
-  .provider('scc.environments', ['ENVIRONMENTS', 'DEFAULT_ENVIRONMENT',
+  .provider('scEnvironments', ['ENVIRONMENTS', 'DEFAULT_ENVIRONMENT',
     function (ENVIRONMENTS, DEFAULT_ENVIRONMENT) {
       'use strict';
 

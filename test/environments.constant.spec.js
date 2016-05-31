@@ -1,4 +1,4 @@
-describe('environments constant', function () {
+describe('constants', function () {
 
   var environmentNames = ['PRODUCTION', 'STAGE', 'INTEGRATION', 'DEVELOPMENT', 'LOCAL', 'TESTING'];
   var environmentProps = ['NAME', 'URL', 'DOMAIN', 'PORT', 'MERCHANT_SERVICE', 'USER_SERVICE', 'TOKEN_SERVICE'];
@@ -35,7 +35,7 @@ describe('environments constant', function () {
   ////////////////////
 
   function modules() {
-    module('solution.center.communicator');
+    module('solutioncenter.communicator');
   }
 
   function injectors() {

@@ -1,4 +1,4 @@
-describe('sc.environments provider', function () {
+describe('scEnvironment', function () {
 
   var environmentNames = ['PRODUCTION', 'STAGE', 'INTEGRATION', 'DEVELOPMENT', 'LOCAL', 'TESTING'];
   var environmentInvalid = [{}, [], 2, '@', null, undefined, 1.2, environmentNames];
@@ -86,12 +86,12 @@ describe('sc.environments provider', function () {
   ////////////////////
 
   function modules() {
-    module('solution.center.communicator');
+    module('solutioncenter.communicator');
   }
 
   function injectors() {
     inject(function ($injector) {
-      environmentsProvider = $injector.get('scc.environments');
+      environmentsProvider = $injector.get('scEnvironments');
       defaultEnvironment = $injector.get('DEFAULT_ENVIRONMENT');
     });
   }

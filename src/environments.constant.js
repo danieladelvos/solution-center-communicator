@@ -1,4 +1,4 @@
-angular.module('solution.center.communicator')
+angular.module('solutioncenter.communicator')
     .constant('DEFAULT_ENVIRONMENT', 'INTEGRATION')
     .constant('ENVIRONMENTS', {
       PRODUCTION: {
