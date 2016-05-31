@@ -39,9 +39,9 @@ gulp.task('scripts', function() {
       errorHandler: handleError
     }))
     .pipe(order([
-      'solution-center-communicator.js'
+      'solution.center.communicator.js'
     ]))
-    .pipe(concat('solution-center-communicator.js'))
+    .pipe(concat('solution.center.communicator.js'))
     .pipe(header(config.banner, {
       pkg: config.pkg
     }))

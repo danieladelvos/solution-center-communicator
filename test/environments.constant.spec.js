@@ -3,6 +3,7 @@ describe('environments constant', function () {
   var environmentNames = ['PRODUCTION', 'STAGE', 'INTEGRATION', 'DEVELOPMENT', 'LOCAL', 'TESTING'];
   var environmentProps = ['NAME', 'URL', 'DOMAIN', 'PORT', 'MERCHANT_SERVICE', 'USER_SERVICE', 'TOKEN_SERVICE'];
   var config;
+  var defaultEnvironment;
 
   beforeEach(function () {
     modules();
@@ -27,6 +28,10 @@ describe('environments constant', function () {
     });
   });
 
+  it('should contain a default environment', function () {
+    expect(defaultEnvironment).toBeDefined();
+  });
+
   ////////////////////
 
   function modules() {
@@ -36,6 +41,7 @@ describe('environments constant', function () {
   function injectors() {
     inject(function ($injector) {
       config = $injector.get('ENVIRONMENTS');
+      defaultEnvironment = $injector.get('DEFAULT_ENVIRONMENT');
     });
   }
 
