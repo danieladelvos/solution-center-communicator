@@ -1,34 +1,10 @@
 # Solution Center Communicator
 Tool for facilitating communication between the Zalando Solution Center and its APIs
 
-### Installation
-
-Install via bower
-
-```shell
-bower install solution-center-communicator
-```
-
-Install via npm
-
-```shell
-npm install solution-center-communicator
-```
-
 ### Usage
 
-1. Load the script in your `<head>` from Bower:
-
-    ```html
-    <script src="../bower_components/solution-center-communicator/dist/solution-center-communicator.min.js"></script>
-    ```
-    
-    Or from NPM:
-    
-    
-    ```html
-    <script src="../node_modules/solution-center-communicator/dist/solution-center-communicator.min.js"></script>
-    ```
+Currently, the communicator is meant for indirect use via [solution-center-login](https://github.com/zalando-incubator/solution-center-login). See [Usage Instructions](https://github.com/zalando-incubator/solution-center-login#usage) for more info.
+Direct use of the communicator is in the works.
 	 
 ### Develop
 

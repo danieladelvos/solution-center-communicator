@@ -6,7 +6,7 @@
     "Greg Deane <greg.james.deane@zalando.de>"
   ],
   "main": [
-    "dist/solution-center-communicator.js"
+    "dist/solutioncenter.communicator.js"
   ],
   "repository": {
     "type": "git",
