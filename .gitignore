@@ -9,3 +9,7 @@ npm-debug.log
 
 ## Directory-based project format:
 .idea/
+
+# System Files
+.DS_Store
+Thumbs.db
