@@ -10,6 +10,7 @@ var uglify = require('gulp-uglify');
 var plumber = require('gulp-plumber');
 var order = require('gulp-order');
 var eslint = require('gulp-eslint');
+var conventionalChangelog = require('gulp-conventional-changelog');
 
 var config = {
   pkg : JSON.parse(fs.readFileSync('./package.json')),
@@ -68,6 +69,16 @@ gulp.task('karma', ['build'], function (done) {
     configFile: __dirname + '/karma.conf.js',
     singleRun: true
   }, done);
+});
+
+gulp.task('changelog', function() {
+  return gulp.src('CHANGELOG.md', {
+    buffer: false
+  })
+  .pipe(conventionalChangelog({
+    preset: 'angular'
+  }))
+  .pipe(gulp.dest('./'));
 });
 
 function handleError(err) {
