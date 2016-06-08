@@ -48,7 +48,7 @@ angular.module('solutioncenter.communicator')
       },
       LOCAL: {
         NAME: 'LOCAL',
-        URL: 'localhost',
+        URL: 'http://localhost',
         DOMAIN: 'localhost',
         PORT: 3333,
         USER_SERVICE: 'https://um-development.norris.zalan.do',
