@@ -1,6 +1,8 @@
 # Solution Center Communicator
 Tool for facilitating communication between the Zalando Solution Center and its APIs
 
+[![Build Status](https://travis-ci.org/zalando-incubator/solution-center-communicator.svg?branch=master)](https://travis-ci.org/zalando-incubator/solution-center-communicator)
+
 ### Usage
 
 Currently, the communicator is meant for indirect use via [solution-center-login](https://github.com/zalando-incubator/solution-center-login). See [Usage Instructions](https://github.com/zalando-incubator/solution-center-login#usage) for more info.
