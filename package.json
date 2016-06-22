@@ -8,14 +8,23 @@
   "scripts": {
     "pretest": "npm run build",
     "test": "karma start --singleRun",
-
     "prebuild": "npm run clean -s && npm run lint -s && mkdirp \"dist\"",
     "build": "npm run build:scripts && npm run build:minify",
     "build:scripts": "browserify src/solutioncenter.communicator.js > dist/solutioncenter.communicator.js",
     "build:minify": "uglifyjs dist/solutioncenter.communicator.js -mc > dist/solutioncenter.communicator.min.js",
-
     "clean": "rimraf ./dist",
-    "lint": "eslint \"src/**/*.js\" && eslint \"test/**/*.spec.js\""
+    "lint": "eslint \"src/**/*.js\" && eslint \"test/**/*.spec.js\"",
+    "prerelease": "npm test",
+    "release": "npm --no-git-tag-version version $v",
+    "postrelease": "npm run commit && npm run tag",
+    "preversion": "git add .",
+    "version": "echo Updating to version $npm_package_version",
+    "postversion": "npm run changelog:step",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "changelog:step": "[ -e CHANGELOG.md ] && npm run changelog -s || npm run changelog -s -- -r 0",
+    "commit": "git commit -am \"chore(release): version $npm_package_version\"",
+    "tag": "git tag -a $npm_package_version -m \"Version $npm_package_version\"",
+    "push": "git push origin master && git push origin $npm_package_version"
   },
   "authors": [
     "Greg Deane <greg.james.deane@zalando.de>"
@@ -44,6 +53,7 @@
   },
   "devDependencies": {
     "browserify": "^13.0.1",
+    "conventional-changelog-cli": "^1.2.0",
     "eslint": "^2.13.1",
     "eslint-config-angular": "^0.5.0",
     "eslint-plugin-angular": "^1.0.1",
