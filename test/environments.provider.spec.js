@@ -1,11 +1,13 @@
+/* eslint-disable angular/di */
+
 describe('scEnvironment', function () {
 
-  var environmentNames = ['PRODUCTION', 'STAGE', 'INTEGRATION', 'DEVELOPMENT', 'LOCAL', 'TESTING'];
-  var environmentInvalid = [{}, [], 2, '@', null, undefined, 1.2, environmentNames];
-  var environmentsProvider;
-  var defaultEnvironment;
-  var mock;
-  var env;
+  var environmentNames = ['PRODUCTION', 'STAGE', 'INTEGRATION', 'DEVELOPMENT', 'LOCAL', 'TESTING'],
+      environmentInvalid = [{}, [], 2, '@', null, undefined, 1.2, environmentNames],
+      environmentsProvider,
+      defaultEnvironment,
+      mock,
+      env;
 
   beforeEach(function () {
     modules();
