@@ -25,7 +25,11 @@ npm test
 
 This command will perform required cleaning, linting, building and testing. Do not make a pull request unless you have run this command and verified its success.
 
-When you are ready to push your changes, run `npm run clean` to remove the `/dist` directory. Do not push the `/dist` directory.
+Prior to pushing changes, run `npm run clean` to remove the `/dist` directory. Do not push the `/dist` directory.
+
+### Release
+
+Pull master branch and run `npm run release x.x.x` (see [Available Commands](#available-commands)) for more info.
 
 #### Available commands
 
