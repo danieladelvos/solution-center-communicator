@@ -3,7 +3,7 @@ node_js:
   - 'stable'
 
 install:
-  - npm install -g gulp bower
+  - npm install -g bower
   - bower install
   - npm install
 
