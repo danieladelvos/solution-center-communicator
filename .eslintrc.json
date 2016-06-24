@@ -8,16 +8,17 @@
     "sourceType": "module"
   },
   "rules": {
-    "angular/di": [2,"array"]
+    "angular/di": [2, "array"],
+    "angular/typecheck-string": 0
   },
   "globals": {
     "angular": true,
     "jQuery": false,
-    "$": true
+    "$": true,
+    "inject": true
   },
   "env": {
-    "browser": true,
-    "jasmine": true,
-    "jquery": true
+    "node": true,
+    "jasmine": true
   }
 }
