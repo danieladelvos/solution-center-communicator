@@ -1,4 +1,12 @@
+var chalk = require('chalk');
+
 module.exports = function(config) {
+  var customFiles = (config.customFiles && 'dist/' + config.customFiles) || '';
+
+  console.log(
+    chalk.yellow('[ Testing ' + chalk.inverse(customFiles) + ' ]')
+  );
+
   config.set({
 
     // Base path, that will be used to resolve files and exclude
@@ -11,7 +19,7 @@ module.exports = function(config) {
     files: [
       'bower_components/angular/angular.js',
       'bower_components/angular-mocks/angular-mocks.js',
-      'dist/solutioncenter.communicator.js',
+      customFiles,
       'test/**/*.spec.js'
     ],
 
