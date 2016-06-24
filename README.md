@@ -17,16 +17,32 @@ npm install
 bower install
 ```
 
-Install Gulp via npm if you don't have it
+During development, use only the following command:
+
 ```shell
-npm install -g gulp
+npm test
 ```
+
+This command will perform required cleaning, linting, building and testing. Do not make a pull request unless you have run this command and verified its success.
+
+When you are ready to push your changes, run `npm run clean` to remove the `/dist` directory. Do not push the `/dist` directory.
 
 #### Available commands
 
-* `gulp`: build and test the project
-* `gulp build`: build and lint the project, creating new files in `dist`
-* `gulp test`: build, lint, and run tests
+* `npm run build`: lint and build the project
+* `npm test`: lint, build, and test the project
+* `npm run lint`: lint source and spec files
+* `npm run clean`: remove `/dist` directory
+* `npm run release x.x.x` (where x.x.x is the specific version to release)
+  * This command will perform most steps necessary for release, including:
+    * `npm test`
+    * `git add .`
+    * `update version in package.json`
+    * `changelog`
+    * `git commit -am \"chore(release): version [supplied version]\"`
+    * `git tag -a [supplied version] -m \"Version [supplied version]\"`
+    * `git push origin master && git push origin [supplied version]`
+  * **Note:** As a precaution, you must run `npm publish` manually after `npm run release x.x.x` successfully completes.
 
 ### License
 The MIT License (MIT) Copyright © 2016 Zalando SE, [https://tech.zalando.com](https://tech.zalando.com)
