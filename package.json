@@ -7,9 +7,7 @@
   "license": "MIT",
   "scripts": {
     "pretest": "npm run build",
-    "test": "npm run test:src && npm run test:min",
-    "test:min": "karma start --customFiles=solutioncenter.communicator.js",
-    "test:src": "karma start --customFiles=solutioncenter.communicator.min.js",
+    "test": "karma start && karma start --testType=min",
     "prebuild": "npm run clean -s && npm run lint -s && mkdirp \"dist\"",
     "build": "npm run build:scripts && npm run build:minify",
     "build:scripts": "browserify src/solutioncenter.communicator.js > dist/solutioncenter.communicator.js",
