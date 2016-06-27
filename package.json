@@ -16,7 +16,7 @@
     "lint": "eslint \"src/**/*.js\" && eslint \"test/**/*.spec.js\"",
     "prerelease": "npm test",
     "release": "npm --no-git-tag-version version $v",
-    "postrelease": "npm run commit:release && npm run tag",
+    "postrelease": "npm run commit:release && npm run tag && npm run push:release",
     "preversion": "git add .",
     "version": "echo Updating to version $npm_package_version",
     "postversion": "npm run changelog:init",
