@@ -14,8 +14,9 @@ Clone the repository, then run:
 
 ```shell
 npm install
-bower install
 ```
+
+Note: `bower install` will be run automatically after `npm install` completes.
 
 During development, use only the following command:
 
