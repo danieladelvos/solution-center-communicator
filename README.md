@@ -31,7 +31,6 @@ Prior to pushing changes, run `npm run clean` to remove the `/dist` directory. D
 
 1. Pull master branch
 1. `npm run release x.x.x` (see [Available Commands](#available-commands) for more info)
-1. `npm publish`
 
 ### Available commands
 
@@ -40,7 +39,7 @@ Prior to pushing changes, run `npm run clean` to remove the `/dist` directory. D
 * `npm run clean`: remove `/dist` directory
 * `npm run build`: lint and build the project
 * `npm run release x.x.x` (where x.x.x is the specific version to release)
-  * This command will perform most steps necessary for release, including:
+  * This command will perform **all** steps necessary for release, including:
     * `npm test`
     * `git add .`
     * `update version in package.json`
@@ -48,8 +47,8 @@ Prior to pushing changes, run `npm run clean` to remove the `/dist` directory. D
     * `git commit -am \"chore(release): version [supplied version]\"`
     * `git tag -a [supplied version] -m \"Version [supplied version]\"`
     * `git push origin master && git push origin [supplied version]`
-
-**Note:** As a precaution, you must run `npm publish` manually after `npm run release x.x.x` successfully completes.
+    * `npm publish`
+  * After `npm publish`, both npm and bower are verified. You should see the latest version listed.
 
 ### License
 The MIT License (MIT) Copyright © 2016 Zalando SE, [https://tech.zalando.com](https://tech.zalando.com)
