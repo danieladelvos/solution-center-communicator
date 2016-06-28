@@ -6,6 +6,7 @@
   "main": "dist/solutioncenter.communicator.js",
   "license": "MIT",
   "scripts": {
+    "env": "env",
     "pretest": "npm run build",
     "test": "karma start && karma start --testType=min",
     "prebuild": "npm run clean -s && npm run lint -s && mkdirp ./dist",
@@ -16,7 +17,7 @@
     "lint": "eslint \"src/**/*.js\" && eslint \"test/**/*.spec.js\"",
     "prerelease": "npm test",
     "release": "npm --no-git-tag-version version $v",
-    "postrelease": "npm run commit:release && npm run tag && npm run push:release",
+    "postrelease": "npm run commit:release && npm run tag && npm run push:release && npm run publish:npm",
     "preversion": "git add .",
     "version": "echo Updating to version $npm_package_version",
     "postversion": "npm run comment:banner && npm run changelog:init",
@@ -25,7 +26,11 @@
     "changelog:init": "[ -e CHANGELOG.md ] && npm run changelog -s || npm run changelog -s -- -r 0",
     "commit:release": "git commit -am \"chore(release): version $npm_package_version\"",
     "tag": "git tag -a $npm_package_version -m \"Version $npm_package_version\"",
-    "push:release": "git push origin master && git push origin $npm_package_version"
+    "push:release": "git push origin master && git push origin $npm_package_version",
+    "publish:npm": "npm publish && npm run verify",
+    "verify": "npm run verify:npm && npm run verify:bower",
+    "verify:npm": "npm view $npm_package_name version",
+    "verify:bower": "bower info $npm_package_name version"
   },
   "authors": [
     "Greg Deane <greg.james.deane@zalando.de>"
