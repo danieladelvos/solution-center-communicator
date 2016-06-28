@@ -14,19 +14,42 @@ Clone the repository, then run:
 
 ```shell
 npm install
-bower install
 ```
 
-Install Gulp via npm if you don't have it
+Note: `bower install` will be run automatically after `npm install` completes.
+
+During development, use only the following command:
+
 ```shell
-npm install -g gulp
+npm test
 ```
 
-#### Available commands
+This command will perform required cleaning, linting, building and testing. Do not make a pull request unless you have run this command and verified its success.
 
-* `gulp`: build and test the project
-* `gulp build`: build and lint the project, creating new files in `dist`
-* `gulp test`: build, lint, and run tests
+Prior to pushing changes, run `npm run clean` to remove the `/dist` directory. Do not push the `/dist` directory.
+
+### Release
+
+1. Pull master branch
+1. `npm run release [major|minor|patch]` (see [Available Commands](#available-commands) for more info)
+
+### Available commands
+
+* `npm test`: lint, build, and test the project
+* `npm run lint`: lint source and spec files
+* `npm run clean`: remove `/dist` directory
+* `npm run build`: lint and build the project
+* `npm run release [major|minor|patch]`
+  * This command will perform **all** steps necessary for release, including:
+    * `npm test`
+    * `git add .`
+    * `update version in package.json`
+    * `changelog`
+    * `git commit -am \"chore(release): version [new version]\"`
+    * `git tag -a [new version] -m \"Version [new version]\"`
+    * `git push origin master && git push origin [new version]`
+    * `npm publish`
+  * After `npm publish`, both npm and bower are verified. You should see the latest version listed.
 
 ### License
 The MIT License (MIT) Copyright © 2016 Zalando SE, [https://tech.zalando.com](https://tech.zalando.com)
