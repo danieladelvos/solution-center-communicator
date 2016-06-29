@@ -1,5 +1,15 @@
+<a name="1.0.1"></a>
+## [1.0.1](https://github.com/zalando-incubator/solution-center-communicator/compare/1.0.0...v1.0.1) (2016-06-29)
+
+
+### Bug Fixes
+
+* **npm-scripts:** remove postinstall script and call to bower verify ([95a7a3c](https://github.com/zalando-incubator/solution-center-communicator/commit/95a7a3c))
+
+
+
 <a name="1.0.0"></a>
-# [1.0.0](https://github.com/zalando-incubator/solution-center-communicator/compare/0.1.2...v1.0.0) (2016-06-28)
+# [1.0.0](https://github.com/zalando-incubator/solution-center-communicator/compare/0.1.2...1.0.0) (2016-06-28)
 
 
 ### Features

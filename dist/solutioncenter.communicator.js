@@ -1,6 +1,6 @@
 /*!
  * Name: solution-center-communicator
- * Version: 1.0.0
+ * Version: 1.0.1
  * Homepage: https://github.com/zalando-incubator/solution-center-communicator
  * License: MIT
  */
