@@ -17,3 +17,6 @@ approvals:
 autobranch:
   pattern: {number}-{title}
   length: 60
+  
+X-Zalando-Team: "norris"
+X-Zalando-Type: "code"
