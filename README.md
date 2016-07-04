@@ -14,9 +14,8 @@ Clone the repository, then run:
 
 ```shell
 npm install
+bower install
 ```
-
-Note: `bower install` will be run automatically after `npm install` completes.
 
 During development, use only the following command:
 
@@ -49,7 +48,8 @@ Prior to pushing changes, run `npm run clean` to remove the `/dist` directory. D
     * `git tag -a [new version] -m \"Version [new version]\"`
     * `git push origin master && git push origin [new version]`
     * `npm publish`
-  * After `npm publish`, both npm and bower are verified. You should see the latest version listed.
+  * After publish, the package is automatically verified. You should see the latest version listed.
+  * If you use bower, you can run `npm run verify:bower` to confirm that bower sees the latest version. 
 
 ### License
 The MIT License (MIT) Copyright © 2016 Zalando SE, [https://tech.zalando.com](https://tech.zalando.com)
