@@ -1,6 +1,6 @@
 approvals:
-  # PR needs at least 1 approval
-  minimum: 1
+  # PR needs at least 2 approvals
+  minimum: 2
   # approval = comment that matches this regex
   pattern: "^(:\\+1:|👍)$"
   # note that `from` is by default empty,
@@ -14,9 +14,5 @@ approvals:
     # OR a collaborator of the repo
     collaborators: true
 
-autobranch:
-  pattern: {number}-{title}
-  length: 60
-  
 X-Zalando-Team: "norris"
 X-Zalando-Type: "code"

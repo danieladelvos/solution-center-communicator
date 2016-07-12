@@ -4,7 +4,7 @@ describe('scEnvironment', function () {
 
   var environmentNames = ['PRODUCTION', 'STAGE', 'INTEGRATION', 'DEVELOPMENT', 'LOCAL', 'TESTING'],
       environmentInvalid = [{}, [], 2, '@', null, undefined, 1.2, environmentNames],
-      environmentsProvider,
+      ScEnvironmentsProvider,
       defaultEnvironment,
       mock,
       env;
@@ -19,33 +19,33 @@ describe('scEnvironment', function () {
 
     it('should set environment based on valid environment string', function () {
       environmentNames.forEach(function (name) {
-        env = environmentsProvider.setCurrentEnvironment(name);
+        env = ScEnvironmentsProvider.setCurrentEnvironment(name);
         expect(env.NAME).toBe(name);
       });
     });
 
     it('should set environment based on custom config', function () {
       mock = getMock('PRODUCTION');
-      env = environmentsProvider.setCurrentEnvironment(mock);
+      env = ScEnvironmentsProvider.setCurrentEnvironment(mock);
       expect(env.NAME).toBe(mock.NAME);
       expect(env.CUSTOM_VALUE).toBe(true);
     });
 
     it('should set local environment if custom config `NAME` contains a "$" sign', function () {
       mock = getMock('${NAME}');
-      env = environmentsProvider.setCurrentEnvironment(mock);
+      env = ScEnvironmentsProvider.setCurrentEnvironment(mock);
       expect(env.NAME).toBe('LOCAL');
     });
 
     it('should set default environment if custom config `NAME` is an empty string', function () {
       mock = getMock('');
-      env = environmentsProvider.setCurrentEnvironment(mock);
+      env = ScEnvironmentsProvider.setCurrentEnvironment(mock);
       expect(env.NAME).toBe(defaultEnvironment);
     });
 
     it('should set default environment if invalid environment value is passed', function () {
       environmentInvalid.forEach(function (invalid) {
-        env = environmentsProvider.setCurrentEnvironment(invalid);
+        env = ScEnvironmentsProvider.setCurrentEnvironment(invalid);
         expect(env.NAME).toBe(defaultEnvironment);
       });
     });
@@ -56,13 +56,13 @@ describe('scEnvironment', function () {
   describe('get current environment', function () {
 
     it('should return default environment if environment has not been set', function () {
-      env = environmentsProvider.getCurrentEnvironment();
+      env = ScEnvironmentsProvider.getCurrentEnvironment();
       expect(env.NAME).toBe(defaultEnvironment);
     });
 
     it('should return specific environment if it was previously set', function () {
-      environmentsProvider.setCurrentEnvironment('STAGE');
-      env = environmentsProvider.getCurrentEnvironment();
+      ScEnvironmentsProvider.setCurrentEnvironment('STAGE');
+      env = ScEnvironmentsProvider.getCurrentEnvironment();
       expect(env.NAME).toBe('STAGE');
     });
 
@@ -72,13 +72,13 @@ describe('scEnvironment', function () {
   describe('get specific environment', function () {
 
     it('should return specific environment if valid environment string is passed', function () {
-      env = environmentsProvider.getSpecificEnvironment('INTEGRATION');
+      env = ScEnvironmentsProvider.getSpecificEnvironment('INTEGRATION');
       expect(env.NAME).toBe('INTEGRATION');
     });
 
     it('should return default environment if invalid environment is passed', function () {
       environmentInvalid.forEach(function (invalid) {
-        env = environmentsProvider.getSpecificEnvironment(invalid);
+        env = ScEnvironmentsProvider.getSpecificEnvironment(invalid);
         expect(env.NAME).toBe(defaultEnvironment);
       });
     });
@@ -93,7 +93,7 @@ describe('scEnvironment', function () {
 
   function injectors() {
     inject(function ($injector) {
-      environmentsProvider = $injector.get('scEnvironments');
+      ScEnvironmentsProvider = $injector.get('ScEnvironments');
       defaultEnvironment = $injector.get('DEFAULT_ENVIRONMENT');
     });
   }
