@@ -6,7 +6,7 @@ angular
   .module('solutioncenter.communicator')
   .constant('DEFAULT_ENVIRONMENT', constants.DEFAULT_ENVIRONMENT)
   .constant('ENVIRONMENTS', constants.ENVIRONMENTS)
-  .provider('scEnvironments', [
+  .provider('ScEnvironments', [
     'ENVIRONMENTS', 'DEFAULT_ENVIRONMENT',
     require('./environments.provider')
   ]);
