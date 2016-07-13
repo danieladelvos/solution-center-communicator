@@ -40,7 +40,7 @@
 
 ### Features
 
-* **env:** add environments service provider wip ([f4502b0](https://github.com/zalando-incubator/solution-center-communicator/commit/f4502b0))
+* **Initial release:** Solution Center Communicator ([7e2deb](https://github.com/zalando-incubator/solution-center-communicator/commit/7e2deb))
 
 
 
