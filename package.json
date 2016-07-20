@@ -17,8 +17,7 @@
     "prerelease": "npm test",
     "release": "npm --no-git-tag-version version $v",
     "postrelease": "npm run branch:release && npm run commit:release && npm run tag:release && npm run push:release",
-    "preversion": "git add .",
-    "version": "echo Updating to version $npm_package_version",
+    "preversion": "git add . && echo Updating to version $npm_package_version",
     "postversion": "npm run comment:banner && npm run changelog",
     "comment:banner": "node tools/banner.js",
     "changelog": "[ -e CHANGELOG.md ] && npm run changelog:update || npm run changelog:init",
@@ -29,7 +28,7 @@
     "commit:release": "git commit -am \"chore(release): version $npm_package_version\"",
     "tag:release": "git tag -a $npm_package_version -m \"Version $npm_package_version\"",
     "push:release": "git push origin release/$npm_package_version && git push origin $npm_package_version",
-    "publish:npm": "npm publish && npm run verify",
+    "postpublish": "npm run verify",
     "verify": "npm run verify:npm",
     "verify:npm": "npm view $npm_package_name version",
     "verify:bower": "bower info $npm_package_name version"

@@ -2,11 +2,6 @@
 # [2.0.0](https://github.com/zalando-incubator/solution-center-communicator/compare/1.0.1...v2.0.0) (2016-07-13)
 
 
-### Chores
-
-* **scripts:** add script to create release branch ([6a05bd0](https://github.com/zalando-incubator/solution-center-communicator/commit/6a05bd0)), closes [#14](https://github.com/zalando-incubator/solution-center-communicator/issues/14)
-
-
 ### Features
 
 * **module:** update module name to align with SC style guide ([cc9caaf](https://github.com/zalando-incubator/solution-center-communicator/commit/cc9caaf)), closes [#11](https://github.com/zalando-incubator/solution-center-communicator/issues/11)
@@ -14,9 +9,7 @@
 
 ### BREAKING CHANGES
 
-* scripts: module names have changed
-
-  scEnvironments: now called ScEnvironments
+* modules: Module names have changed. `scEnvironments` is now called `ScEnvironments`.
 
 
 
