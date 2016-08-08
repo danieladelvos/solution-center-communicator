@@ -1,3 +1,13 @@
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/zalando-incubator/solution-center-communicator/compare/2.0.0...v2.1.0) (2016-08-08)
+
+
+### Features
+
+* **services:** add new service url ([7bbe735](https://github.com/zalando-incubator/solution-center-communicator/commit/7bbe735))
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/zalando-incubator/solution-center-communicator/compare/1.0.1...v2.0.0) (2016-07-13)
 
