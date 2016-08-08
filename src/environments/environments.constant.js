@@ -7,7 +7,8 @@ module.exports.ENVIRONMENTS = {
     PORT: '',
     USER_SERVICE: 'https://user-management.norris.zalan.do',
     TOKEN_SERVICE: 'https://token-management.norris.zalan.do',
-    MERCHANT_SERVICE: 'https://merchant-management.norris.zalan.do'
+    MERCHANT_SERVICE: 'https://merchant-management.norris.zalan.do',
+    GOODDATA_SERVICE: 'https://gooddata.norris.zalan.do'
   },
   STAGE: {
     NAME: 'STAGE',
@@ -16,7 +17,8 @@ module.exports.ENVIRONMENTS = {
     PORT: '',
     USER_SERVICE: 'https://um-stage.norris.zalan.do',
     TOKEN_SERVICE: 'https://tm-stage.norris.zalan.do',
-    MERCHANT_SERVICE: 'https://merchant-stage.norris.zalan.do'
+    MERCHANT_SERVICE: 'https://merchant-stage.norris.zalan.do',
+    GOODDATA_SERVICE: 'https://gooddata-stage.norris.zalan.do'
   },
   INTEGRATION: {
     NAME: 'INTEGRATION',
@@ -25,7 +27,8 @@ module.exports.ENVIRONMENTS = {
     PORT: '',
     USER_SERVICE: 'https://um-integration.norris.zalan.do',
     TOKEN_SERVICE: 'https://tm-integration.norris.zalan.do',
-    MERCHANT_SERVICE: 'https://merchant-integration.norris.zalan.do'
+    MERCHANT_SERVICE: 'https://merchant-integration.norris.zalan.do',
+    GOODDATA_SERVICE: 'https://gooddata-integration.norris.zalan.do'
   },
   DEVELOPMENT: {
     NAME: 'DEVELOPMENT',
@@ -34,7 +37,8 @@ module.exports.ENVIRONMENTS = {
     PORT: '',
     USER_SERVICE: 'https://um-development.norris.zalan.do',
     TOKEN_SERVICE: 'https://tm-development.norris.zalan.do',
-    MERCHANT_SERVICE: 'https://merchant-development.norris.zalan.do'
+    MERCHANT_SERVICE: 'https://merchant-development.norris.zalan.do',
+    GOODDATA_SERVICE: 'https://gooddata-development.norris.zalan.do'
   },
   LOCAL: {
     NAME: 'LOCAL',
@@ -43,15 +47,17 @@ module.exports.ENVIRONMENTS = {
     PORT: 3333,
     USER_SERVICE: 'https://um-development.norris.zalan.do',
     TOKEN_SERVICE: 'https://tm-development.norris.zalan.do',
-    MERCHANT_SERVICE: 'https://merchant-development.norris.zalan.do'
+    MERCHANT_SERVICE: 'https://merchant-development.norris.zalan.do',
+    GOODDATA_SERVICE: 'https://gooddata-development.norris.zalan.do'
   },
   TESTING: {
     NAME: 'TESTING',
     URL: '',
     DOMAIN: '',
     PORT: '',
-    MERCHANT_SERVICE: '',
     USER_SERVICE: '',
-    TOKEN_SERVICE: ''
+    TOKEN_SERVICE: '',
+    MERCHANT_SERVICE: '',
+    GOODDATA_SERVICE: ''
   }
 };
