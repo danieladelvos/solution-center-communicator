@@ -1,10 +1,3 @@
-/*!
- * Name: solution-center-communicator
- * Version: 2.1.0
- * Homepage: https://github.com/zalando-incubator/solution-center-communicator
- * License: MIT
- */
-
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 module.exports.DEFAULT_ENVIRONMENT = 'INTEGRATION';
 module.exports.ENVIRONMENTS = {
@@ -16,7 +9,8 @@ module.exports.ENVIRONMENTS = {
     USER_SERVICE: 'https://user-management.norris.zalan.do',
     TOKEN_SERVICE: 'https://token-management.norris.zalan.do',
     MERCHANT_SERVICE: 'https://merchant-management.norris.zalan.do',
-    GOODDATA_SERVICE: 'https://gooddata.norris.zalan.do'
+    GOODDATA_SERVICE: 'https://gooddata.norris.zalan.do',
+    MODULE_SERVICE: 'https://module-service.norris.zalan.do'
   },
   STAGE: {
     NAME: 'STAGE',
@@ -26,7 +20,8 @@ module.exports.ENVIRONMENTS = {
     USER_SERVICE: 'https://um-stage.norris.zalan.do',
     TOKEN_SERVICE: 'https://tm-stage.norris.zalan.do',
     MERCHANT_SERVICE: 'https://merchant-stage.norris.zalan.do',
-    GOODDATA_SERVICE: 'https://gooddata-stage.norris.zalan.do'
+    GOODDATA_SERVICE: 'https://gooddata-stage.norris.zalan.do',
+    MODULE_SERVICE: 'https://ms-stage.norris.zalan.do'
   },
   INTEGRATION: {
     NAME: 'INTEGRATION',
@@ -36,7 +31,8 @@ module.exports.ENVIRONMENTS = {
     USER_SERVICE: 'https://um-integration.norris.zalan.do',
     TOKEN_SERVICE: 'https://tm-integration.norris.zalan.do',
     MERCHANT_SERVICE: 'https://merchant-integration.norris.zalan.do',
-    GOODDATA_SERVICE: 'https://gooddata-integration.norris.zalan.do'
+    GOODDATA_SERVICE: 'https://gooddata-integration.norris.zalan.do',
+    MODULE_SERVICE: 'https://ms-integration.norris.zalan.do'
   },
   DEVELOPMENT: {
     NAME: 'DEVELOPMENT',
@@ -46,7 +42,8 @@ module.exports.ENVIRONMENTS = {
     USER_SERVICE: 'https://um-development.norris.zalan.do',
     TOKEN_SERVICE: 'https://tm-development.norris.zalan.do',
     MERCHANT_SERVICE: 'https://merchant-development.norris.zalan.do',
-    GOODDATA_SERVICE: 'https://gooddata-development.norris.zalan.do'
+    GOODDATA_SERVICE: 'https://gooddata-development.norris.zalan.do',
+    MODULE_SERVICE: 'https://ms-development.norris.zalan.do'
   },
   LOCAL: {
     NAME: 'LOCAL',
@@ -56,7 +53,8 @@ module.exports.ENVIRONMENTS = {
     USER_SERVICE: 'https://um-development.norris.zalan.do',
     TOKEN_SERVICE: 'https://tm-development.norris.zalan.do',
     MERCHANT_SERVICE: 'https://merchant-development.norris.zalan.do',
-    GOODDATA_SERVICE: 'https://gooddata-development.norris.zalan.do'
+    GOODDATA_SERVICE: 'https://gooddata-development.norris.zalan.do',
+    MODULE_SERVICE: 'https://ms-development.norris.zalan.do'
   },
   TESTING: {
     NAME: 'TESTING',
@@ -66,7 +64,8 @@ module.exports.ENVIRONMENTS = {
     USER_SERVICE: '',
     TOKEN_SERVICE: '',
     MERCHANT_SERVICE: '',
-    GOODDATA_SERVICE: ''
+    GOODDATA_SERVICE: '',
+    MODULE_SERVICE: ''
   }
 };
 
