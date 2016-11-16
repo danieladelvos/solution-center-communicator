@@ -9,7 +9,8 @@ module.exports.ENVIRONMENTS = {
     TOKEN_SERVICE: 'https://token-management.norris.zalan.do',
     MERCHANT_SERVICE: 'https://merchant-management.norris.zalan.do',
     GOODDATA_SERVICE: 'https://gooddata.norris.zalan.do',
-    MODULE_SERVICE: 'https://module-service.norris.zalan.do'
+    MODULE_SERVICE: 'https://module-service.norris.zalan.do',
+    USER_SERVICE_NEW: 'https://user-service.norris.zalan.do'
   },
   STAGE: {
     NAME: 'STAGE',
@@ -20,7 +21,8 @@ module.exports.ENVIRONMENTS = {
     TOKEN_SERVICE: 'https://tm-stage.norris.zalan.do',
     MERCHANT_SERVICE: 'https://merchant-stage.norris.zalan.do',
     GOODDATA_SERVICE: 'https://gooddata-stage.norris.zalan.do',
-    MODULE_SERVICE: 'https://ms-stage.norris.zalan.do'
+    MODULE_SERVICE: 'https://ms-stage.norris.zalan.do',
+    USER_SERVICE_NEW: 'https://us2-stage.norris.zalan.do'
   },
   INTEGRATION: {
     NAME: 'INTEGRATION',
@@ -31,7 +33,8 @@ module.exports.ENVIRONMENTS = {
     TOKEN_SERVICE: 'https://tm-integration.norris.zalan.do',
     MERCHANT_SERVICE: 'https://merchant-integration.norris.zalan.do',
     GOODDATA_SERVICE: 'https://gooddata-integration.norris.zalan.do',
-    MODULE_SERVICE: 'https://ms-integration.norris.zalan.do'
+    MODULE_SERVICE: 'https://ms-integration.norris.zalan.do',
+    USER_SERVICE_NEW: 'https://us2-integration.norris.zalan.do'
   },
   DEVELOPMENT: {
     NAME: 'DEVELOPMENT',
@@ -42,7 +45,8 @@ module.exports.ENVIRONMENTS = {
     TOKEN_SERVICE: 'https://tm-development.norris.zalan.do',
     MERCHANT_SERVICE: 'https://merchant-development.norris.zalan.do',
     GOODDATA_SERVICE: 'https://gooddata-development.norris.zalan.do',
-    MODULE_SERVICE: 'https://ms-development.norris.zalan.do'
+    MODULE_SERVICE: 'https://ms-development.norris.zalan.do',
+    USER_SERVICE_NEW: 'https://us2-development.norris.zalan.do'
   },
   LOCAL: {
     NAME: 'LOCAL',
@@ -53,7 +57,8 @@ module.exports.ENVIRONMENTS = {
     TOKEN_SERVICE: 'https://tm-development.norris.zalan.do',
     MERCHANT_SERVICE: 'https://merchant-development.norris.zalan.do',
     GOODDATA_SERVICE: 'https://gooddata-development.norris.zalan.do',
-    MODULE_SERVICE: 'https://ms-development.norris.zalan.do'
+    MODULE_SERVICE: 'https://ms-development.norris.zalan.do',
+    USER_SERVICE_NEW: 'https://us2-development.norris.zalan.do'
   },
   TESTING: {
     NAME: 'TESTING',
@@ -64,6 +69,7 @@ module.exports.ENVIRONMENTS = {
     TOKEN_SERVICE: '',
     MERCHANT_SERVICE: '',
     GOODDATA_SERVICE: '',
-    MODULE_SERVICE: ''
+    MODULE_SERVICE: '',
+    USER_SERVICE_NEW: ''
   }
 };
