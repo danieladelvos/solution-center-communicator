@@ -1,6 +1,6 @@
 {
   "name": "solution-center-communicator",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Tool for facilitating communication between the Zalando Solution Center and its APIs",
   "homepage": "https://github.com/zalando-incubator/solution-center-communicator",
   "main": "dist/solutioncenter.communicator.js",
