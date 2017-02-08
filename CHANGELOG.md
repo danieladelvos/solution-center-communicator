@@ -1,3 +1,44 @@
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/zalando-incubator/solution-center-communicator/compare/2.3.0...v3.0.0) (2017-02-08)
+
+
+### Features
+
+* **environments:** update user and token service URLs ([925c76f](https://github.com/zalando-incubator/solution-center-communicator/commit/925c76f))
+
+
+### BREAKING CHANGES
+
+* environments: USER_SERVICE and TOKEN_SERVICE keys have changed to
+  USER_SERVICE_OLD and TOKEN_SERVICE_OLD, USER_SERVICE now points
+  to the new user/token service, TOKEN_SERVICE has been removed
+
+  To use the new user/token service, use USER_SERVICE:
+
+  ```js
+  var env = ScEnvironmentsProvider.getCurrentEnvironment();
+  var tokenEndpoint = env.USER_SERVICE + '/tokens';
+  var userEndpoint = env.USER_SERVICE + '/users';
+  ```
+
+  If you need to continue using the old services, change your code from this:
+
+  ```js
+  var env = ScEnvironmentsProvider.getCurrentEnvironment();
+  var oldTokenEndpoint = env.TOKEN_SERVICE + '/tokens';
+  var oldUserEndpoint = env.USER_SERVICE + '/users';
+  ```
+
+  To this:
+
+  ```js
+  var env = ScEnvironmentsProvider.getCurrentEnvironment();
+  var oldTokenEndpoint = env.TOKEN_SERVICE_OLD + '/tokens';
+  var oldUserEndpoint = env.USER_SERVICE_OLD + '/users';
+  ```
+
+
+
 <a name="2.3.0"></a>
 # [2.3.0](https://github.com/zalando-incubator/solution-center-communicator/compare/2.2.0...v2.3.0) (2016-11-16)
 
