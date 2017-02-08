@@ -65,11 +65,11 @@ module.exports.ENVIRONMENTS = {
     URL: '',
     DOMAIN: '',
     PORT: '',
-    USER_SERVICE: '',
-    TOKEN_SERVICE: '',
+    USER_SERVICE_OLD: '',
+    TOKEN_SERVICE_OLD: '',
     MERCHANT_SERVICE: '',
     GOODDATA_SERVICE: '',
     MODULE_SERVICE: '',
-    USER_SERVICE_NEW: ''
+    USER_SERVICE: ''
   }
 };

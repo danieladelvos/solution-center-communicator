@@ -4,8 +4,8 @@ describe('constants', function () {
 
   var environmentNames = ['PRODUCTION', 'STAGE', 'INTEGRATION', 'DEVELOPMENT', 'LOCAL', 'TESTING'],
       environmentProps = [
-        'NAME', 'URL', 'DOMAIN', 'PORT', 'USER_SERVICE', 'TOKEN_SERVICE',
-        'MERCHANT_SERVICE', 'GOODDATA_SERVICE', 'MODULE_SERVICE', 'USER_SERVICE_NEW'
+        'NAME', 'URL', 'DOMAIN', 'PORT', 'USER_SERVICE', 'TOKEN_SERVICE_OLD',
+        'MERCHANT_SERVICE', 'GOODDATA_SERVICE', 'MODULE_SERVICE', 'USER_SERVICE_OLD'
       ],
       config,
       defaultEnvironment;
