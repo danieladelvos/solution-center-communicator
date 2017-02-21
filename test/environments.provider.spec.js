@@ -2,7 +2,7 @@
 
 describe('scEnvironment', function () {
 
-  var environmentNames = ['PRODUCTION', 'STAGE', 'INTEGRATION', 'DEVELOPMENT', 'LOCAL', 'TESTING'],
+  var environmentNames = ['PRODUCTION', 'STAGE', 'INTEGRATION', 'LOCAL', 'TESTING'],
       environmentInvalid = [{}, [], 2, '@', null, undefined, 1.2, environmentNames],
       ScEnvironmentsProvider,
       defaultEnvironment,

@@ -36,29 +36,17 @@ module.exports.ENVIRONMENTS = {
     MODULE_SERVICE: 'https://ms-integration.norris.zalan.do',
     USER_SERVICE: 'https://us-integration.norris.zalan.do'
   },
-  DEVELOPMENT: {
-    NAME: 'DEVELOPMENT',
-    URL: 'https://sc-development.norris.zalan.do',
-    DOMAIN: '.zalan.do',
-    PORT: '',
-    USER_SERVICE_OLD: 'https://um-development.norris.zalan.do',
-    TOKEN_SERVICE_OLD: 'https://tm-development.norris.zalan.do',
-    MERCHANT_SERVICE: 'https://merchant-development.norris.zalan.do',
-    GOODDATA_SERVICE: 'https://gooddata-development.norris.zalan.do',
-    MODULE_SERVICE: 'https://ms-development.norris.zalan.do',
-    USER_SERVICE: 'https://us-development.norris.zalan.do'
-  },
   LOCAL: {
     NAME: 'LOCAL',
     URL: 'http://localhost',
     DOMAIN: 'localhost',
     PORT: 3333,
-    USER_SERVICE_OLD: 'https://um-development.norris.zalan.do',
-    TOKEN_SERVICE_OLD: 'https://tm-development.norris.zalan.do',
-    MERCHANT_SERVICE: 'https://merchant-development.norris.zalan.do',
-    GOODDATA_SERVICE: 'https://gooddata-development.norris.zalan.do',
-    MODULE_SERVICE: 'https://ms-development.norris.zalan.do',
-    USER_SERVICE: 'https://us-development.norris.zalan.do'
+    USER_SERVICE_OLD: 'https://um-integration.norris.zalan.do',
+    TOKEN_SERVICE_OLD: 'https://tm-integration.norris.zalan.do',
+    MERCHANT_SERVICE: 'https://merchant-integration.norris.zalan.do',
+    GOODDATA_SERVICE: 'https://gooddata-integration.norris.zalan.do',
+    MODULE_SERVICE: 'https://ms-integration.norris.zalan.do',
+    USER_SERVICE: 'https://us-integration.norris.zalan.do'
   },
   TESTING: {
     NAME: 'TESTING',
