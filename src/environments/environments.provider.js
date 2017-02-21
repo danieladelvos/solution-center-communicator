@@ -22,7 +22,7 @@ module.exports = function (ENVIRONMENTS, DEFAULT_ENVIRONMENT) {
 
   /**
    * Get environment object by name
-   * Possible values: 'PRODUCTION', 'STAGE', 'INTEGRATION', 'DEVELOPMENT', 'LOCAL', 'TESTING'
+   * Possible values: 'PRODUCTION', 'STAGE', 'INTEGRATION', 'LOCAL', 'TESTING'
    *
    * @private
    * @param {string} name - Environment name

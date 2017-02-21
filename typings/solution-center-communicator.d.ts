@@ -69,11 +69,6 @@ declare namespace ScCommunicator {
     INTEGRATION: Environment;
 
     /**
-     * Development environment
-     */
-    DEVELOPMENT: Environment;
-
-    /**
      * Local environment
      */
     LOCAL: Environment;

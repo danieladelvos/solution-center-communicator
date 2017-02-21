@@ -34,10 +34,13 @@
     "verify:bower": "bower info $npm_package_name version"
   },
   "authors": [
-    "Greg Deane <greg.james.deane@zalando.de>"
+    "Greg Deane <greg.james.deane@zalando.de>",
+    "Damián García <colin.howald@zalando.de>",
+    "Colin Howald <colin.howald@zalando.de>"
   ],
   "maintainers": [
-    "Greg Deane <greg.james.deane@zalando.de>"
+    "Damián García <colin.howald@zalando.de>",
+    "Colin Howald <colin.howald@zalando.de>"
   ],
   "repository": {
     "type": "git",
