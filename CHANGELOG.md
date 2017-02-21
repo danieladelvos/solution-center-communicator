@@ -1,3 +1,13 @@
+<a name="4.0.0"></a>
+# [4.0.0](https://github.com/zalando-incubator/solution-center-communicator/compare/3.0.0...v4.0.0) (2017-02-21)
+
+
+### Features
+
+* **environments:** remove DEVELOPMENT environment and point LOCAL to INTEGRATION urls ([7544783](https://github.com/zalando-incubator/solution-center-communicator/commit/7544783))
+
+
+
 <a name="3.0.0"></a>
 # [3.0.0](https://github.com/zalando-incubator/solution-center-communicator/compare/2.3.0...v3.0.0) (2017-02-08)
 
