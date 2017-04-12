@@ -2,7 +2,7 @@ module.exports.DEFAULT_ENVIRONMENT = 'INTEGRATION';
 module.exports.ENVIRONMENTS = {
   PRODUCTION: {
     NAME: 'PRODUCTION',
-    URL: 'https://www.solutions.zalando.com',
+    URL: 'https://solutions.zalando.com',
     DOMAIN: 'solutions.zalando.com',
     PORT: '',
     USER_SERVICE_OLD: 'https://user-management.norris.zalan.do',
@@ -10,7 +10,8 @@ module.exports.ENVIRONMENTS = {
     MERCHANT_SERVICE: 'https://merchant-management.norris.zalan.do',
     GOODDATA_SERVICE: 'https://gooddata.norris.zalan.do',
     MODULE_SERVICE: 'https://module-service.norris.zalan.do',
-    USER_SERVICE: 'https://user-service.norris.zalan.do'
+    USER_SERVICE: 'https://user-service.norris.zalan.do',
+    USER_MANAGEMENT: 'https://account.solutions.zalando.com'
   },
   STAGE: {
     NAME: 'STAGE',
@@ -22,7 +23,8 @@ module.exports.ENVIRONMENTS = {
     MERCHANT_SERVICE: 'https://merchant-stage.norris.zalan.do',
     GOODDATA_SERVICE: 'https://gooddata-stage.norris.zalan.do',
     MODULE_SERVICE: 'https://ms-stage.norris.zalan.do',
-    USER_SERVICE: 'https://us-stage.norris.zalan.do'
+    USER_SERVICE: 'https://us-stage.norris.zalan.do',
+    USER_MANAGEMENT: 'https://account-stage.norris.zalan.do'
   },
   INTEGRATION: {
     NAME: 'INTEGRATION',
@@ -34,7 +36,8 @@ module.exports.ENVIRONMENTS = {
     MERCHANT_SERVICE: 'https://merchant-integration.norris.zalan.do',
     GOODDATA_SERVICE: 'https://gooddata-integration.norris.zalan.do',
     MODULE_SERVICE: 'https://ms-integration.norris.zalan.do',
-    USER_SERVICE: 'https://us-integration.norris.zalan.do'
+    USER_SERVICE: 'https://us-integration.norris.zalan.do',
+    USER_MANAGEMENT: 'https://account-integration.norris.zalan.do'
   },
   LOCAL: {
     NAME: 'LOCAL',
@@ -46,7 +49,8 @@ module.exports.ENVIRONMENTS = {
     MERCHANT_SERVICE: 'https://merchant-integration.norris.zalan.do',
     GOODDATA_SERVICE: 'https://gooddata-integration.norris.zalan.do',
     MODULE_SERVICE: 'https://ms-integration.norris.zalan.do',
-    USER_SERVICE: 'https://us-integration.norris.zalan.do'
+    USER_SERVICE: 'https://us-integration.norris.zalan.do',
+    USER_MANAGEMENT: 'https://account-integration.norris.zalan.do'
   },
   TESTING: {
     NAME: 'TESTING',
@@ -58,6 +62,7 @@ module.exports.ENVIRONMENTS = {
     MERCHANT_SERVICE: '',
     GOODDATA_SERVICE: '',
     MODULE_SERVICE: '',
-    USER_SERVICE: ''
+    USER_SERVICE: '',
+    USER_MANAGEMENT: ''
   }
 };
