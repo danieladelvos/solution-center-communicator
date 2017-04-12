@@ -1,3 +1,13 @@
+<a name="4.1.0"></a>
+# [4.1.0](https://github.com/zalando-incubator/solution-center-communicator/compare/4.0.0...v4.1.0) (2017-04-12)
+
+
+### Features
+
+* **environments:** add user management frontend urls ([d3a78d6](https://github.com/zalando-incubator/solution-center-communicator/commit/d3a78d6))
+
+
+
 <a name="4.0.0"></a>
 # [4.0.0](https://github.com/zalando-incubator/solution-center-communicator/compare/3.0.0...v4.0.0) (2017-02-21)
 
